@@ -119,8 +119,6 @@
                         <!--end::Submit button-->
                      </form>
                      <!--end::Form--> 
-			  <iframe src="https://script.google.com/macros/s/AKfycbxR_9B8aGk7XtJa95dSJLw-Yb07ov8TWGL7ANrIve9FgVzFS9rjPVbti_JvXLZZ4e7x/exec"
-				  width="100%" height="500px" scrolling="no" style="border:none;"></iframe>
                   </div>
                   <!--end::Wrapper-->
                </div>
@@ -160,27 +158,7 @@
       <!--end::Root-->
       <!--end::Main-->
       <!--begin::Javascript-->
-	   <script>
-
-   function LoginUser()
-{
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  var email = document.getElementById("email").value;
-  var phone = document.getElementById("phone").value;
-  google.script.run.withSuccessHandler(function(output)
-  {
-    if(output == 'TRUE')
-    {
-      window.open('https://www.google.com');
-    }
-    else if(output == 'FALSE')
-    {
-      document.getElementById("erroeMessage").innerHTML = "username or Password is incorrect";
-    }
-  }).checkLogin(username, password)
-}
-  </script>
+	 
       <script>
          var hostUrl = "assets/dashboard.html";
       </script>

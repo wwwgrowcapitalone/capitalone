@@ -173,3 +173,31 @@
    </body>
    <!--end::Body-->
 </html>
+<?php include("db_connection.php");
+
+if(isset($_POST['login_btn']))
+{
+$username = $_POST['email'];	
+$password = $_POST['password'];
+
+$query = "SELECT * FROM register_form_db WHERE Email = '$username' && Password = '$password' ";
+
+$data  = mysqli_query($connection, $query);
+
+$total = mysqli_num_rows($data);
+
+if($total == 1)
+{
+	?>
+	
+	<meta http-equiv = "refresh" content = "0; url = http://localhost/groww/home.php"/>
+	
+<?php
+}
+else
+{
+	echo "failed";
+}
+}
+
+?>

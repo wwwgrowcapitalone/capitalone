@@ -1,5 +1,3 @@
-<?php include("db_connection.php");?>
-
 <html>
    <head>
      <title></title>
@@ -108,33 +106,3 @@
  
   </body>
 </html>
-
-
-
-<?php 
-
-   if($_POST['register'])
-   {
-	   $username = $_POST['username'];
-	   $phone = $_POST['number'];
-	   $email = $_POST['email'];
-	   $pwd = $_POST['pwd'];
-	   $cpwd = $_POST['cpwd'];
-	   $accountnumber = $_POST['accountnumber'];
-	   $ifsccode = $_POST['ifsccode'];
-	   
-	   $query = "INSERT INTO register_form_db values('$username','$phone','$email','$pwd',
-	                                    '$cpwd','$accountnumber','$ifsccode')";
-										
-		$data = mysqli_query($connection,$query);
-
-        if($data)
-        {
-			echo "Data Inserted into Database";
-		}			
-		else 
-		{
-			echo "Failed";
-		}
-		}
-?>
